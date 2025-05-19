@@ -7,10 +7,10 @@ WORKDIR /usr/src/app
 # Copy package.json and package-lock.json
 COPY package*.json ./
 
+ENV NODE_OPTIONS=--openssl-legacy-provider
+
 # Install dependencies
 RUN npm install
-
-RUN  export NODE_OPTIONS=--openssl-legacy-provider
 
 # Copy the rest of the app code
 COPY . .
