@@ -5,15 +5,10 @@ FROM node:18
 WORKDIR /usr/src/app
 
 # Copy package.json and package-lock.json
-COPY package*.json ./
+COPY . .
 
 ENV NODE_OPTIONS=--openssl-legacy-provider
 
-# Install dependencies
-RUN npm install
-
-# Copy the rest of the app code
-COPY . .
 
 # Expose port (if your app runs on 3000, change if different)
 EXPOSE 4200
